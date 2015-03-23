@@ -24,6 +24,10 @@ public class BuggyEquals {
 	 */
 	static X x = new X(2);
 	/**
+	 * Object of unknown Class X as static type Object.
+	 */
+	static Object xObject = new X(2);
+	/**
 	 * Object of unknown and extended Class Y from Class X.
 	 */
 	static Y y = new Y(2, 3);
@@ -33,7 +37,8 @@ public class BuggyEquals {
 	 * @param args
 	 */
 	public static void main(String... args){
-		System.out.println(equalsHasBrokenTypecheck());
+		System.out.println("Broken Typecheck: "+equalsHasBrokenTypecheck());
+		System.out.println("Bad Signature: "+ equalsHasBadSignature());
 	}
 	
 	/**
@@ -44,6 +49,19 @@ public class BuggyEquals {
 	 */
 	public static boolean equalsHasBrokenTypecheck(){
 		return x.equals(y);
+	}
+	
+	/**
+	 * Testing the unknown equal-method of John Cool for bad signature.
+	 * 
+	 * Class X inhered an default equal-method with an Object parameter.
+	 * The Compiler decided the default method, because xObject has as static type "Object".
+	 * It doesn't call the method of John Cool.
+	 * @return
+	 */
+	public static boolean equalsHasBadSignature(){
+		return !x.equals(xObject);
+		
 	}
 
 }

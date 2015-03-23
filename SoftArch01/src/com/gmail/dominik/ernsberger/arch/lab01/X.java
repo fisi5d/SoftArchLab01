@@ -15,10 +15,18 @@ public class X {
 	public X(int a){
 		this.a = a;
 	}
-
+/*
 	public boolean equals(Object anything) {
 	    if(!(anything instanceof X))  // falsch! Richtig waere: getClass() != anything.getClass()
 	        return false;
 		return true;
+	}
+	
+	*/
+	
+	public boolean equals(X anything) {  // falsch! Richtig waere: Object anything
+	  if(getClass() != anything.getClass())
+		  return false;
+	  return true;
 	}
 }
