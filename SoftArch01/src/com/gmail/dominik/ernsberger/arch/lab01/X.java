@@ -24,8 +24,11 @@ public class X {
 	
 	*/
 	
-	public boolean equals(X anything) {  // falsch! Richtig waere: Object anything
+	public boolean equals(Object anything) {  // falsch! Richtig waere: Object anything
 	  if(getClass() != anything.getClass())
+		  return false;
+	  X that = (X) anything;
+	  if(a != that.a)
 		  return false;
 	  return true;
 	}

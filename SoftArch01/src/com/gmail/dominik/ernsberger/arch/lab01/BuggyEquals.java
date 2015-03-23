@@ -31,6 +31,7 @@ public class BuggyEquals {
 	 * Object of unknown and extended Class Y from Class X.
 	 */
 	static Y y = new Y(2, 3);
+	static Y y1 = new Y(3, 3);
 	
 	/**
 	 * Starts the program and calls the testing-methods.
@@ -39,12 +40,14 @@ public class BuggyEquals {
 	public static void main(String... args){
 		System.out.println("Broken Typecheck: "+equalsHasBrokenTypecheck());
 		System.out.println("Bad Signature: "+ equalsHasBadSignature());
+		System.out.println("Misses super: "+ equalsMissesSuper());
 	}
 	
 	/**
 	 * Testing the unknown equal-method of John Cool for broken typecheck.
 	 * 
 	 * If the typecheck is wrong (instanceof) it will return true. Otherwise it will return false.
+	 * instanceof accepts every extended class of X.
 	 * @return
 	 */
 	public static boolean equalsHasBrokenTypecheck(){
@@ -62,6 +65,17 @@ public class BuggyEquals {
 	public static boolean equalsHasBadSignature(){
 		return !x.equals(xObject);
 		
+	}
+	
+	/**
+	 * Testing the unknown equal-method of John Cool for missing super.
+	 * 
+	 * If the super-call is missing it doesn't call the equal-method of X to check the value of a.
+	 * For this reason it appears equal even if the first parameter (a) is different.
+	 * @return
+	 */
+	public static boolean equalsMissesSuper(){
+		return y.equals(y1);
 	}
 
 }

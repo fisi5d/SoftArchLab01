@@ -22,10 +22,13 @@ public class Y extends X{
 	}
 	
 	public boolean equals(Object anything) {
-	    if(!(anything instanceof Y))  // falsch! Richtig waere: getClass() != anything.getClass()
+	    if(getClass() != anything.getClass())  // falsch! Richtig waere: getClass() != anything.getClass()
 	        return false;
-	    if(!super.equals(anything))
+	    Y that = (Y)anything;
+	    if(b != that.b)
 	    	return false;
+	   //if(!super.equals(anything))
+		 //  return false;
 		return true;
 	} 
 
