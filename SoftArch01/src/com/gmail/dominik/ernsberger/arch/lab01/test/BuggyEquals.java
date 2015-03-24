@@ -4,7 +4,7 @@
 package com.gmail.dominik.ernsberger.arch.lab01.test;
 
 /**
- * Hochschule München FK07, Praktikum Softwarearchitektur, Aufgabe 01
+ * Hochschule München FK07, Praktikum Softwarearchitektur, Aufgabe 01.
  * 
  * @author Dominik Ernsberger, Andrea Kaminski
  * 
@@ -22,16 +22,19 @@ public class BuggyEquals {
 	/**
 	 * Object of unknown Class X.
 	 */
-	static X x = new X(2);
+	private static X x = new X(2);
 	/**
 	 * Object of unknown Class X as static type Object.
 	 */
-	static Object xObject = new X(2);
+	private static Object xObject = new X(2);
 	/**
 	 * Object of unknown and extended Class Y from Class X.
 	 */
-	static Y y = new Y(2, 3);
-	static Y y1 = new Y(3, 3);
+	private static Y y = new Y(2, 3);
+	/**
+	 * Object of unknown and extended Class Y from Class X.
+	 */
+	private static Y y1 = new Y(3, 3);
 	
 //	/**
 //	 * Starts the program and calls the testing-methods.
